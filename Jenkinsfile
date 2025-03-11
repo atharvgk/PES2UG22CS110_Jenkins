@@ -1,3 +1,48 @@
+// pipeline {
+//     agent any
+
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 script {
+//                     echo 'Compiling C++ file...'
+//                     sh 'g++ ./main/hello.cpp -o PES2UG22CS110-1'
+//                 }
+//             }
+//         }
+
+//         stage('Test') {
+//             steps {
+//                 script {
+//                     echo 'Running the compiled file...'
+//                     sh './PES2UG22CS110-1'
+//                 }
+//             }
+//         }
+
+//         stage('Deploy') {
+//             steps {
+//                 script {
+//                     echo 'Deploying the application...'
+//                 }
+//             }
+//         }
+//     }
+
+//     post {
+//         always {
+//             echo 'Pipeline execution completed.'
+//         }
+//         success {
+//             echo 'Pipeline executed successfully!'
+//         }
+//         failure {
+//             echo 'Pipeline failed at some stage!'
+//         }
+//     }
+// }
+
+
 pipeline {
     agent any
 
@@ -6,7 +51,7 @@ pipeline {
             steps {
                 script {
                     echo 'Compiling C++ file...'
-                    sh 'g++ hello.cpp -o PES2UG22CS103-1'  // Compile the C++ file
+                    sh 'g++ ./main/hello.cpp -o PES2UG22CS110-1'
                 }
             }
         }
@@ -15,7 +60,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running the compiled file...'
-                    sh './PES2UG22CS103-1'  // Execute the compiled program
+                    sh './PES2UG22CS110-1'
                 }
             }
         }
@@ -24,7 +69,7 @@ pipeline {
             steps {
                 script {
                     echo 'Deploying the application...'
-                    sh 'exit 1'  // **Intentional error: This forces the stage to fail**
+                    sh 'exit 1'
                 }
             }
         }
